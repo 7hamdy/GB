@@ -1,0 +1,46 @@
+        <div class="admin-panel__content">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header">
+                        <h1>All Messages</h1>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-hover table-bordered table-content">
+                        <thead>
+                            <?php if($result){
+                                foreach($result as $value){
+                                 $title = $value['title'];
+                                 $content = $value['content'];
+                                 $name = $value['name'];
+                                 $email = $value['email'];
+                            
+                            ?>
+                            <tr>
+                                <th width="150px">Message Title</th>
+                                <th>Message Content</th>
+                                <th width="150px">Writer Name</th>
+                                <th>Writer Email</th>
+                                <th width="150px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><?php echo $title ?></td>
+                                <td><?php echo $content ?> </td>
+                                <td><?php echo $name ?></td>
+                                <td><?php echo $email ?></td>
+                                <td>
+                                    <a href="deleteMessage.php?id=<?php echo $value['id'] ?>" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                            <?php } }?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+       
